@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9F46C92F-262C-4992-8150-5F54D5E3762D}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>FileSystemViewer</RootNamespace>
+    <AssemblyName>FileSystemViewer</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Application.cs" />
+    <Compile Include="ApplicationLogic.cs" />
+    <Compile Include="Engine\Components\Behaviors\Adapters\DrawBehaviorAdapter.cs" />
+    <Compile Include="Engine\Components\Behaviors\Adapters\InputBehaviorAdapter.cs" />
+    <Compile Include="Engine\Components\Behaviors\Adapters\ResetBehaviorAdapter.cs" />
+    <Compile Include="Engine\Components\Behaviors\Adapters\SettingsAdjustmentBehaviorAdapter.cs" />
+    <Compile Include="Engine\Components\Behaviors\Factories\DrawComponentFactory.cs" />
+    <Compile Include="Engine\Components\Behaviors\Factories\IComponentFactory.cs" />
+    <Compile Include="Engine\Components\Behaviors\Factories\ResetComponentFactory.cs" />
+    <Compile Include="Engine\Components\Behaviors\Factories\SettingsAdjustmentFactory.cs" />
+    <Compile Include="Engine\Components\Behaviors\Factories\InputComponentFactory.cs" />
+    <Compile Include="Engine\Components\Behaviors\Factories\UpdateComponentFactory.cs" />
+    <Compile Include="Engine\Components\Behaviors\IBehavior.cs" />
+    <Compile Include="Engine\Components\Behaviors\IDrawBehavior.cs" />
+    <Compile Include="Engine\Components\Behaviors\IInputBehavior.cs" />
+    <Compile Include="Engine\Components\Behaviors\IResetBehavior.cs" />
+    <Compile Include="Engine\Components\Behaviors\ISettingsAdjustmentBehavior.cs" />
+    <Compile Include="Engine\Components\Behaviors\IUpdateBehavior.cs" />
+    <Compile Include="Engine\Components\Component.cs" />
+    <Compile Include="Engine\Components\ComponentFinder.cs" />
+    <Compile Include="Engine\Components\ComponentProvider.cs" />
+    <Compile Include="Engine\Components\IComponentFinder.cs" />
+    <Compile Include="Engine\Components\IComponentProvider.cs" />
+    <Compile Include="Engine\Frames\RunOrders.cs" />
+    <Compile Include="Engine\Frames\SettingsAdjustmentFrameRunner.cs" />
+    <Compile Include="Logic\Behaviors\UpdateBehaviors\UpdateBehavior.cs" />
+    <Compile Include="Logic\Behaviors\WindowSetUpBehavior.cs" />
+    <Compile Include="Logic\Exceptions\ColorNotDefinedException.cs" />
+    <Compile Include="Engine\Frames\DrawFrameRunner.cs" />
+    <Compile Include="Engine\Frames\FrameRunner.cs" />
+    <Compile Include="Engine\Frames\IFrameRunner.cs" />
+    <Compile Include="Logic\Managers\Entries\ISystemRootManager.cs" />
+    <Compile Include="Logic\Managers\Entries\ISystemRootProvider.cs" />
+    <Compile Include="Logic\Managers\Refreshes\IRefreshProvider.cs" />
+    <Compile Include="Engine\Frames\InputFrameRunner.cs" />
+    <Compile Include="Engine\Frames\ResetFrameRunner.cs" />
+    <Compile Include="Engine\Frames\UpdateFrameRunner.cs" />
+    <Compile Include="Engine\Input\IPressedKeysManager.cs" />
+    <Compile Include="Engine\Input\IPressedKeysProvider.cs" />
+    <Compile Include="Engine\Input\Key.cs" />
+    <Compile Include="Engine\Input\PressedKeysManager.cs" />
+    <Compile Include="Engine\IntegerWrap.cs" />
+    <Compile Include="Engine\Layer.cs" />
+    <Compile Include="Engine\Layers.cs" />
+    <Compile Include="Graphics\Color.cs" />
+    <Compile Include="Graphics\Colors.cs" />
+    <Compile Include="Graphics\ConsoleRenderer.cs" />
+    <Compile Include="Graphics\IRenderer.cs" />
+    <Compile Include="IRunnable.cs" />
+    <Compile Include="Logic\Behaviors\DrawBehaviors\CleanScreenBehavior.cs" />
+    <Compile Include="Logic\Behaviors\DrawBehaviors\DrawBehavior.cs" />
+    <Compile Include="Logic\Behaviors\DrawBehaviors\DrawConnectionBehavior\ConnectionBehavior.cs" />
+    <Compile Include="Logic\Behaviors\DrawBehaviors\DrawConnectionBehavior\DrawFileConnectionBehavior.cs" />
+    <Compile Include="Logic\Behaviors\DrawBehaviors\DrawConnectionBehavior\DrawRepositoryConnectionBehavior.cs" />
+    <Compile Include="Logic\Behaviors\DrawBehaviors\DrawEntryBehaviors\DrawEntryBehavior.cs" />
+    <Compile Include="Logic\Behaviors\DrawBehaviors\DrawEntryBehaviors\FileDrawBehavior.cs" />
+    <Compile Include="Logic\Behaviors\DrawBehaviors\DrawEntryBehaviors\LogicalDriveDrawBehavior.cs" />
+    <Compile Include="Logic\Behaviors\DrawBehaviors\DrawEntryBehaviors\PCDrawBehavior.cs" />
+    <Compile Include="Logic\Behaviors\DrawBehaviors\DrawEntryBehaviors\FolderDrawBehavior.cs" />
+    <Compile Include="Logic\Behaviors\DrawBehaviors\DrawEntryBehaviors\RepositoryDrawBehavior.cs" />
+    <Compile Include="Logic\Behaviors\InputBehaviors\InputBehavior.cs" />
+    <Compile Include="Logic\Behaviors\ResetBehavior.cs" />
+    <Compile Include="Logic\Behaviors\InitializeRootBehavior.cs" />
+    <Compile Include="Logic\Behaviors\UpdateBehaviors\CollapseBehavior.cs" />
+    <Compile Include="Logic\Behaviors\UpdateBehaviors\CreateEntriesBehavior.cs" />
+    <Compile Include="Logic\Behaviors\UpdateBehaviors\ExpandBehavior.cs" />
+    <Compile Include="Logic\Behaviors\UpdateBehaviors\MoveBehaviors\MoveBehavior.cs" />
+    <Compile Include="Logic\Behaviors\UpdateBehaviors\MoveBehaviors\MoveLeftBehavior.cs" />
+    <Compile Include="Logic\Behaviors\UpdateBehaviors\MoveBehaviors\MoveRightBehavior.cs" />
+    <Compile Include="Logic\Behaviors\UpdateBehaviors\MoveBehaviors\MoveSelectedBehavior.cs" />
+    <Compile Include="Logic\Behaviors\UpdateBehaviors\MoveBehaviors\MoveDownBehavior.cs" />
+    <Compile Include="Logic\Behaviors\UpdateBehaviors\MoveBehaviors\MoveSelectedUpBehavior.cs" />
+    <Compile Include="Logic\Behaviors\UpdateBehaviors\UpdatePositionBeheviors\UpdateAllPositionsBehavior.cs" />
+    <Compile Include="Logic\Behaviors\UpdateBehaviors\UpdatePositionBeheviors\UpdatePositionAfterSelectedBehavior.cs" />
+    <Compile Include="Logic\Behaviors\UpdateBehaviors\UpdatePositionBeheviors\UpdatePositionBehavior.cs" />
+    <Compile Include="Logic\NativeMethods.cs" />
+    <Compile Include="Logic\Objects\Converter.cs" />
+    <Compile Include="Logic\Managers\CreatedEntriesList\CreatedEntries.cs" />
+    <Compile Include="Logic\EntryColors.cs" />
+    <Compile Include="Logic\Managers\Refreshes\RefreshManager.cs" />
+    <Compile Include="Logic\Managers\CreatedEntriesList\ICreatedEntriesManager.cs" />
+    <Compile Include="Logic\Managers\Refreshes\IRefreshManager.cs" />
+    <Compile Include="Logic\Managers\Entries\ISelectedManager.cs" />
+    <Compile Include="Logic\Managers\Entries\ISelectedProvider.cs" />
+    <Compile Include="Logic\Managers\CreatedEntriesList\ICreatedEntriesProvider.cs" />
+    <Compile Include="Logic\Iterators\FileSystemIterator.cs" />
+    <Compile Include="Logic\Iterators\ForwardIterator..cs" />
+    <Compile Include="Logic\Iterators\IIterator.cs" />
+    <Compile Include="Logic\Iterators\ReverseIterator.cs" />
+    <Compile Include="Logic\Objects\FileSystemEntries\FileSystemFactories\FileSystemFactory.cs" />
+    <Compile Include="Logic\Objects\FileSystemEntries\FileSystemFactories\IFileSystemFactory.cs" />
+    <Compile Include="Logic\Managers\Entries\SelectManager.cs" />
+    <Compile Include="Logic\Objects\FileSystemEntries\File.cs" />
+    <Compile Include="Logic\Objects\FileSystemEntries\FileSystemEntry.cs" />
+    <Compile Include="Logic\Objects\FileSystemEntries\Repositories\Folder.cs" />
+    <Compile Include="Logic\Objects\FileSystemEntries\Repositories\LogicalDrive.cs" />
+    <Compile Include="Logic\Objects\FileSystemEntries\Repositories\PC.cs" />
+    <Compile Include="Logic\Objects\FileSystemEntries\Repositories\Repository.cs" />
+    <Compile Include="Logic\Managers\Sizes\SizeProvider.cs" />
+    <Compile Include="Logic\Managers\Sizes\ISizeProvider.cs" />
+    <Compile Include="Logic\Objects\Point.cs" />
+    <Compile Include="Logic\Objects\Size.cs" />
+    <Compile Include="Logic\Managers\Entries\SystemRootManager.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
