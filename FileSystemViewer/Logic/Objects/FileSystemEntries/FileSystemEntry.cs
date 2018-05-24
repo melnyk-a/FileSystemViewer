@@ -26,7 +26,7 @@ namespace FileSystemViewer.Logic.Objects.FileSystemEntries
         {
             int count = 0;
 
-            FileSystemEntry parent = this.Parent;
+            FileSystemEntry parent = Parent;
             while (parent != null)
             {
                 ++count;
