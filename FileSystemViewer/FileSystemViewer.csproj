@@ -146,7 +146,7 @@
     <Compile Include="Logic\Managers\Sizes\SizeProvider.cs" />
     <Compile Include="Logic\Managers\Sizes\ISizeProvider.cs" />
     <Compile Include="Logic\Objects\Point.cs" />
-    <Compile Include="Logic\Objects\Size.cs" />
+    <Compile Include="Logic\Objects\ScreenLimit.cs" />
     <Compile Include="Logic\Managers\Entries\SystemRootManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
