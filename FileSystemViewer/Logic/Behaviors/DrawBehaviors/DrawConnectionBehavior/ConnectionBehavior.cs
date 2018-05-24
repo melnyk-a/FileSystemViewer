@@ -27,6 +27,7 @@ namespace FileSystemViewer.Logic.Behaviors.DrawBehaviors.DrawConnectionBehavior
         }
 
         protected override Color Background => SystemColors.DefaultBackground;
+
         protected override Color Foreground => SystemColors.DefaultForeground;
 
         protected override void DrawItem(IRenderer renderer, IIterator<FileSystemEntry> iterator)

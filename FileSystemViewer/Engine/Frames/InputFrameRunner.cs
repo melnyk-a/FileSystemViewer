@@ -10,6 +10,7 @@ namespace FileSystemViewer.Engine.Frames
         }
 
         protected override Layer Layer => Layers.Input;
+
         public override int RunOrder => RunOrders.Input;
     }
 }

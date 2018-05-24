@@ -7,7 +7,6 @@ namespace FileSystemViewer.Logic.Iterators
     {
         protected bool findDone = false;
         private readonly FileSystemEntry head;
-
         // переменная будет хранить ссылку на следующий элемент, 
         // если он был найден, но текущая позиция не смещалась.
         protected FileSystemEntry nextFinded;

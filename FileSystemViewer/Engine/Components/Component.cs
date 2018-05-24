@@ -14,6 +14,7 @@ namespace FileSystemViewer.Engine.Components
         }
 
         public bool IsEnabled => behavior.IsEnabled;
+
         public Layer Layer => layer;
 
         public void Update()

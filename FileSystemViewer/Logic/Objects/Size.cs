@@ -13,6 +13,7 @@
 
         // -1 для корректной работы с индексами.
         public int LowerBound => lowerBound - 1;
+
         public int UpperBound => upperBound;
     }
 }

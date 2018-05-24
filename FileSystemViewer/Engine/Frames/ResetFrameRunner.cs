@@ -10,6 +10,7 @@ namespace FileSystemViewer.Engine.Frames
         }
 
         protected override Layer Layer => Layers.Reset;
+
         public override int RunOrder => RunOrders.Reset;
     }
 }

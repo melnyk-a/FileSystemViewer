@@ -13,9 +13,13 @@ namespace FileSystemViewer.Logic.Objects.FileSystemEntries
         }
 
         public bool IsSelected { get; set; }
+
         public virtual string Name { get; protected set; }
+
         public FileSystemEntry Parent { get; private set; }
+
         public string Path { get; private set; }
+
         public Point Position { get; set; }
 
         public int GetGenerationCount()

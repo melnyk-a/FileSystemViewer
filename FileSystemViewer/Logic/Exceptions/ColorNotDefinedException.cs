@@ -10,6 +10,7 @@ namespace FileSystemViewer.Engine.Exceptions
         {
             this.color = color;
         }
+
         public override string Message
         {
             get

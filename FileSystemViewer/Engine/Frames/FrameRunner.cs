@@ -12,6 +12,7 @@ namespace FileSystemViewer.Engine.Frames
         }
 
         protected abstract Layer Layer { get; }
+
         public abstract int RunOrder { get; }
 
         public virtual void Run()
