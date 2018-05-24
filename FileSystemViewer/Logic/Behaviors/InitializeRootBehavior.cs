@@ -23,7 +23,7 @@ namespace FileSystemViewer.Logic.Behaviors
             this.systemRoot = systemRoot;
         }
 
-        public bool IsEnabled { get; set; } = true;
+        public bool IsEnabled { get; private set; } = true;
 
         public void SetUp()
         {

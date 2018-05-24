@@ -12,7 +12,7 @@ namespace FileSystemViewer.Logic.Behaviors
             this.renderer = renderer;
         }
 
-        public bool IsEnabled { get; set; } = true;
+        public bool IsEnabled { get; private set; } = true;
 
         public void SetUp()
         {
