@@ -5,17 +5,11 @@
         public PC(string path, FileSystemEntry parent) : 
             base(path, parent)
         {
-            Name = GetPCName();
+            Name = PCName;
         }
 
-        private string GetPCName()
-        {
-            return NativeMethods.GetComputerFolderName();
-        }
+        private string PCName => NativeMethods.GetComputerFolderName();
 
-        public override Repository GetRepository()
-        {
-            return this;
-        }
+        public override Repository Repository => this;
     }
 }

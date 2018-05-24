@@ -25,7 +25,7 @@ namespace FileSystemViewer.Logic.Behaviors.UpdateBehaviours
 
         public override void Update()
         {
-            Repository repository = selectedProvider.Item.GetRepository();
+            Repository repository = selectedProvider.Item.Repository;
             if (repository != null)
             {
                 foreach (FileSystemEntry entry in createdEntries.Items)

@@ -16,17 +16,39 @@ namespace FileSystemViewer.Logic.Iterators
             return new NextItem[] { NextChild, NextSibling, NextRelativeDegree };
         }
 
-        private bool HasChild()
+        private bool HasChild
         {
-            bool hasChild = false;
-
-            Repository childRepository = Current.GetRepository();
-            if (childRepository != null && childRepository.IsExpand)
+            get
             {
-                hasChild = true;
-            }
+                bool hasChild = false;
 
-            return hasChild;
+                Repository childRepository = Current.Repository;
+                if (childRepository != null && childRepository.IsExpand)
+                {
+                    hasChild = true;
+                }
+
+                return hasChild;
+            }
+        }
+
+        private bool HasSibling
+        {
+            get
+            {
+                bool hasSibling = false;
+
+                if (Current.Parent != null)
+                {
+                    Repository parentRepository = Current.Parent.Repository;
+                    if (parentRepository.Entries.Count > 1)
+                    {
+                        hasSibling = true;
+                    }
+                }
+
+                return hasSibling;
+            }
         }
 
         private bool HasRelativeDegree(FileSystemEntry entry)
@@ -41,29 +63,15 @@ namespace FileSystemViewer.Logic.Iterators
             return hasRelativeDegree;
         }
 
-        private bool HasSibling()
-        {
-            bool hasSibling = false;
 
-            if (Current.Parent != null)
-            {
-                Repository parentRepository = Current.Parent.GetRepository();
-                if (parentRepository.Entries.Count > 1)
-                {
-                    hasSibling = true;
-                }
-            }
-
-            return hasSibling;
-        }
 
         private FileSystemEntry NextChild(FileSystemEntry entry)
         {
             FileSystemEntry nextChild = null;
 
-            if (HasChild())
+            if (HasChild)
             {
-                nextChild = entry.GetRepository().Entries[0];
+                nextChild = entry.Repository.Entries[0];
             }
 
             return nextChild;
@@ -76,7 +84,7 @@ namespace FileSystemViewer.Logic.Iterators
             if (HasRelativeDegree(entry))
             {
                 Repository parentRepository;
-                parentRepository = entry.Parent.Parent.GetRepository();
+                parentRepository = entry.Parent.Parent.Repository;
                 int index = parentRepository.Entries.IndexOf(entry.Parent);
                 if (index == parentRepository.Entries.Count - 1)
                 {
@@ -95,9 +103,9 @@ namespace FileSystemViewer.Logic.Iterators
         {
             FileSystemEntry nextSibling = null;
 
-            if (HasSibling())
+            if (HasSibling)
             {
-                Repository parentRepository = entry.Parent.GetRepository();
+                Repository parentRepository = entry.Parent.Repository;
                 int index = parentRepository.Entries.IndexOf(Current);
                 if (index < parentRepository.Entries.Count - 1)
                 {

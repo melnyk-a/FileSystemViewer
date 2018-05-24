@@ -8,9 +8,6 @@
             Name = System.IO.Path.GetFileName(Path);
         }
 
-        public override Repository GetRepository()
-        {
-            return this;
-        }
+        public override Repository Repository => this;
     }
 }

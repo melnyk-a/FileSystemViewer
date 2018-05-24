@@ -85,12 +85,12 @@ namespace FileSystemViewer.Logic.Behaviors.UpdateBehaviors
 
         public override void Update()
         {
-            Repository repository = selectedProvider.Item.GetRepository();
+            Repository repository = selectedProvider.Item.Repository;
             if (repository != null)
             {
                 if (repository.IsExpand && repository.Entries.Count == 0)
                 {
-                    Repository parent = selectedProvider.Item.GetRepository();
+                    Repository parent = selectedProvider.Item.Repository;
 
                     if (parent is PC)
                     {

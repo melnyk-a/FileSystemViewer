@@ -22,7 +22,7 @@ namespace FileSystemViewer.Logic.Behaviors.DrawBehaviors.DrawEntryBehaviors
 
         protected override string GetName(FileSystemEntry entry)
         {
-            string size = Converter.BytesToString(((File)entry).GetSize());
+            string size = Converter.BytesToString(((File)entry).Size);
             return $"{entry.Name} ({size})";
         }
 

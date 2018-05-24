@@ -9,7 +9,24 @@ namespace FileSystemViewer.Logic.Objects.FileSystemEntries
         {
             Path = path;
             Parent = parent;
-            Position = new Point(GetGenerationCount(), 0);
+            Position = new Point(GenerationCount, 0);
+        }
+
+        public int GenerationCount
+        {
+            get
+            {
+                int count = 0;
+
+                FileSystemEntry parent = Parent;
+                while (parent != null)
+                {
+                    ++count;
+                    parent = parent.Parent;
+                }
+
+                return count;
+            }
         }
 
         public bool IsSelected { get; set; }
@@ -22,26 +39,12 @@ namespace FileSystemViewer.Logic.Objects.FileSystemEntries
 
         public Point Position { get; set; }
 
-        public int GetGenerationCount()
-        {
-            int count = 0;
-
-            FileSystemEntry parent = Parent;
-            while (parent != null)
-            {
-                ++count;
-                parent = parent.Parent;
-            }
-
-            return count;
-        }
+        public abstract Repository Repository { get; }
 
         public IIterator<FileSystemEntry> GetForwardIterator()
         {
             return new ForwardIterator(this);
         }
-
-        public abstract Repository GetRepository();
 
         public IIterator<FileSystemEntry> GetReverseIterator()
         {

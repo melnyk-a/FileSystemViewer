@@ -28,7 +28,7 @@ namespace FileSystemViewer.Logic.Behaviors
         public void SetUp()
         {
             systemRoot.Root = factory.CreatePC(null, null) as Repository;
-            Repository repository = systemRoot.Root.GetRepository();
+            Repository repository = systemRoot.Root.Repository;
             repository.IsExpand = true;
             repository.IsSelected = true;
             selectedManager.Item = systemRoot.Root;

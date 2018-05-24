@@ -12,6 +12,7 @@ namespace FileSystemViewer.Logic.Objects.FileSystemEntries.Repositories
 
         public IList<FileSystemEntry> Entries { get; private set; }
             = new List<FileSystemEntry>();
+
         public bool IsExpand { get; set; }
     }
 }

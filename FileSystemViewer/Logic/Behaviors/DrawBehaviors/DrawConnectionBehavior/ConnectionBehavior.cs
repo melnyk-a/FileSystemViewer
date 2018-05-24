@@ -58,11 +58,11 @@ namespace FileSystemViewer.Logic.Behaviors.DrawBehaviors.DrawConnectionBehavior
             FileSystemEntry parenent = entry.Parent;
             if (parenent != null)
             {
-                int index = parenent.GetRepository().Entries.IndexOf(entry);
-                int entriesCount = parenent.GetRepository().Entries.Count;
+                int index = parenent.Repository.Entries.IndexOf(entry);
+                int entriesCount = parenent.Repository.Entries.Count;
                 
                 if (index + 1 < entriesCount && 
-                    parenent.GetRepository().Entries[index + 1].GetRepository() != null)
+                    parenent.Repository.Entries[index + 1].Repository != null)
                 {
                     hasNextSibling = true;
                 }

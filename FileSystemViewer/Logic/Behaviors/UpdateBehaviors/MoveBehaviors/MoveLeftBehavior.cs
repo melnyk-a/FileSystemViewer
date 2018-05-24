@@ -20,7 +20,7 @@ namespace FileSystemViewer.Logic.Behaviors.UpdateBehaviors.MoveBehaviors
 
         protected override void ProcessMove(ISelectedManager selectedManager)
         {
-            Repository repository = selectedManager.Item.GetRepository();
+            Repository repository = selectedManager.Item.Repository;
             if (repository != null)
             {
                 repository.IsExpand = false;

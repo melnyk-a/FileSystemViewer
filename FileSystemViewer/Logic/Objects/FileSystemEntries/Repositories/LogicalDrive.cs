@@ -8,9 +8,6 @@
             Name = path;
         }
 
-        public override Repository GetRepository()
-        {
-            return this;
-        }
+        public override Repository Repository => this;
     }
 }
