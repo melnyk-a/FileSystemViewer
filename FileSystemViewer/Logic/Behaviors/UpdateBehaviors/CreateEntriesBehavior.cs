@@ -94,7 +94,7 @@ namespace FileSystemViewer.Logic.Behaviors.UpdateBehaviors
 
                     if (parent is PC)
                     {
-                        AddSubItem(GetChildren(parent, factory.CreateLoficalDrive));
+                        AddSubItem(GetChildren(parent, factory.CreateLogicalDrive));
                     }
                     else
                     {

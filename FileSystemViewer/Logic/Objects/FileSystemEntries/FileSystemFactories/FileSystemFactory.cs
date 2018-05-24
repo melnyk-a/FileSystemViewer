@@ -21,7 +21,7 @@ namespace FileSystemViewer.Logic.Objects.FileSystemEntries.FileSystemFactories
             return new Folder(path, parent);
         }
 
-        public FileSystemEntry CreateLoficalDrive(
+        public FileSystemEntry CreateLogicalDrive(
             string path,
             FileSystemEntry parent
         )
